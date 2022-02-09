@@ -5,7 +5,7 @@ import logging
 import pprint
 from datetime import datetime
 
-SLACK_URL = "https://hooks.slack.com/services/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"
+SLACK_URL = "https://hooks.slack.com/services/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"
 
 s3 = boto3.resource('s3')
 
