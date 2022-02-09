@@ -1,0 +1,65 @@
+{
+    "Bucket": "",
+    "NotificationConfiguration": {
+        "TopicConfigurations": [
+            {
+                "Id": "",
+                "TopicArn": "",
+                "Events": [
+                    "s3:Replication:OperationFailedReplication"
+                ],
+                "Filter": {
+                    "Key": {
+                        "FilterRules": [
+                            {
+                                "Name": "prefix",
+                                "Value": ""
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "QueueConfigurations": [
+            {
+                "Id": "",
+                "QueueArn": "",
+                "Events": [
+                    "s3:ObjectTagging:*"
+                ],
+                "Filter": {
+                    "Key": {
+                        "FilterRules": [
+                            {
+                                "Name": "prefix",
+                                "Value": ""
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "LambdaFunctionConfigurations": [
+            {
+                "Id": "",
+                "LambdaFunctionArn": "",
+                "Events": [
+                    "s3:ObjectRestore:*"
+                ],
+                "Filter": {
+                    "Key": {
+                        "FilterRules": [
+                            {
+                                "Name": "suffix",
+                                "Value": ""
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "EventBridgeConfiguration": {}
+    },
+    "ExpectedBucketOwner": "",
+    "SkipDestinationValidation": true
+}

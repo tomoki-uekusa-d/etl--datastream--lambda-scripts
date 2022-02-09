@@ -1,0 +1,38 @@
+{
+  "Bucket": "test-datastream-source",
+  "NotificationConfiguration": {
+    "LambdaFunctionConfigurations": [
+      {
+        "Id": "4f0abc9d-c2b4-434f-93be-5bcb547fea8c",
+        "LambdaFunctionArn": "arn:aws:lambda:ap-northeast-1:861228436192:function:test-datastream-streaming-dev-app-api-music-dwjp-cf",
+        "Events": ["s3:ObjectCreated:*"],
+        "Filter": {
+          "Key": {
+            "FilterRules": [
+              {
+                "Name": "Prefix",
+                "Value": "dev-app-api-music.dwango.jp/cloudfront"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "Id": "62e22b65-72b9-4fee-a7cc-a0532a5c57c2",
+        "LambdaFunctionArn": "arn:aws:lambda:ap-northeast-1:861228436192:function:test-datastream-streaming-testing",
+        "Events": ["s3:ObjectCreated:*"],
+        "Filter": {
+          "Key": {
+            "FilterRules": [
+              {
+                "Name": "Prefix",
+                "Value": "testing"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "SkipDestinationValidation": true
+}

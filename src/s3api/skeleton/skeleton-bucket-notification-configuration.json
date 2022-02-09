@@ -1,0 +1,25 @@
+{
+  "Bucket": "<YOUR BUCKET>",
+  "NotificationConfiguration": {
+      "LambdaFunctionConfigurations": [
+          {
+              "Id": "<YOUR ID>",
+              "LambdaFunctionArn": "<YOUR LAMBDA FUNCTION ARN>",
+              "Events": [
+                  "s3:ObjectCreated:*"
+              ],
+              "Filter": {
+                  "Key": {
+                      "FilterRules": [
+                          {
+                              "Name": "Prefix",
+                              "Value": "<YOUR OBJECT KEY PATH>"
+                          }
+                      ]
+                  }
+              }
+          }
+      ]
+  },
+  "SkipDestinationValidation": true
+}

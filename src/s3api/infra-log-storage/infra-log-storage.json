@@ -1,0 +1,23 @@
+{
+  "Bucket": "infra-log-storage",
+  "NotificationConfiguration": {
+    "LambdaFunctionConfigurations": [
+      {
+        "Id": "2a473258-6231-4384-91b2-72b0545942a5",
+        "LambdaFunctionArn": "arn:aws:lambda:ap-northeast-1:861228436192:function:test-datastream-streaming-test-fe-music-dwjp-cf",
+        "Events": ["s3:ObjectCreated:*"],
+        "Filter": {
+          "Key": {
+            "FilterRules": [
+              {
+                "Name": "Prefix",
+                "Value": "noren/cloudfront/test-frontend-music.dwango.jp"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "SkipDestinationValidation": true
+}

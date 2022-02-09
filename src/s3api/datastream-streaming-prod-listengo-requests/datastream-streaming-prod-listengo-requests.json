@@ -1,0 +1,38 @@
+{
+  "Bucket": "gcp-log-archive",
+  "NotificationConfiguration": {
+    "LambdaFunctionConfigurations": [
+      {
+        "Id": "8461ff2e-00c8-4c7f-b151-3dffdf7a4dbd",
+        "LambdaFunctionArn": "arn:aws:lambda:ap-northeast-1:861228436192:function:datastream-streaming-prod-listengo-requests",
+        "Events": ["s3:ObjectCreated:*"],
+        "Filter": {
+          "Key": {
+            "FilterRules": [
+              {
+                "Name": "Prefix",
+                "Value": "prod-listengo/requests"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "Id": "64dc97f5-f702-4b63-958b-120462113278",
+        "LambdaFunctionArn": "arn:aws:lambda:ap-northeast-1:861228436192:function:datastream-streaming-dev-listengo-requests",
+        "Events": ["s3:ObjectCreated:*"],
+        "Filter": {
+          "Key": {
+            "FilterRules": [
+              {
+                "Name": "Prefix",
+                "Value": "dev-listengo/requests"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "SkipDestinationValidation": true
+}

@@ -1,0 +1,51 @@
+{
+    "EventSourceArn": "",
+    "FunctionName": "",
+    "Enabled": true,
+    "BatchSize": 0,
+    "FilterCriteria": {
+        "Filters": [
+            {
+                "Pattern": ""
+            }
+        ]
+    },
+    "MaximumBatchingWindowInSeconds": 0,
+    "ParallelizationFactor": 0,
+    "StartingPosition": "TRIM_HORIZON",
+    "StartingPositionTimestamp": "1970-01-01T00:00:00",
+    "DestinationConfig": {
+        "OnSuccess": {
+            "Destination": ""
+        },
+        "OnFailure": {
+            "Destination": ""
+        }
+    },
+    "MaximumRecordAgeInSeconds": 0,
+    "BisectBatchOnFunctionError": true,
+    "MaximumRetryAttempts": 0,
+    "TumblingWindowInSeconds": 0,
+    "Topics": [
+        ""
+    ],
+    "Queues": [
+        ""
+    ],
+    "SourceAccessConfigurations": [
+        {
+            "Type": "SASL_SCRAM_512_AUTH",
+            "URI": ""
+        }
+    ],
+    "SelfManagedEventSource": {
+        "Endpoints": {
+            "KeyName": [
+                ""
+            ]
+        }
+    },
+    "FunctionResponseTypes": [
+        "ReportBatchItemFailures"
+    ]
+}
