@@ -4,7 +4,6 @@ AWS Lambda scripts for datastream
 
 ## Log format
 
-
 項目         | 型     | 備考                       | 例
 -------------|--------|:---------------------------|:------------------------------------
 service_name | string | サービス名                     | dev-listengo-requests
@@ -24,6 +23,33 @@ user_agent       | string |           ユーザーエージェント            
 message          | string |            オリジナルメッセージ                | ""
 org_body          | string|          ログ原文 | "2021-10-18\t20...."
 
+## Naming rules
+
+### lambda function
+
+notification
+```
+[test-]datastream-notification-alert
+```
+
+streaming
+```
+[test-]datastream-streaming-<PATH>
+```
+
+transform
+
+```
+[test-]datastream-transform-<PATH>
+```
+
+shorten words
+
+```
+dwango.jp → dwjp
+frontend → fe
+cloudfront → cf
+```
 
 ## reference
 
