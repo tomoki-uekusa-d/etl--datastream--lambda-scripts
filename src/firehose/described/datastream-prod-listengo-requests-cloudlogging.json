@@ -1,0 +1,91 @@
+{
+    "DeliveryStreamDescription": {
+        "DeliveryStreamName": "datastream-prod-listengo-requests-cloudlogging",
+        "DeliveryStreamARN": "arn:aws:firehose:ap-northeast-1:861228436192:deliverystream/datastream-prod-listengo-requests-cloudlogging",
+        "DeliveryStreamStatus": "ACTIVE",
+        "DeliveryStreamEncryptionConfiguration": {
+            "Status": "DISABLED"
+        },
+        "DeliveryStreamType": "DirectPut",
+        "VersionId": "1",
+        "CreateTimestamp": "2021-10-24T17:49:30.342000+09:00",
+        "Destinations": [
+            {
+                "DestinationId": "destinationId-000000000001",
+                "S3DestinationDescription": {
+                    "RoleARN": "arn:aws:iam::861228436192:role/firehose_integrate-log-format",
+                    "BucketARN": "arn:aws:s3:::test-datastream-transform",
+                    "Prefix": "",
+                    "ErrorOutputPrefix": "",
+                    "BufferingHints": {
+                        "SizeInMBs": 5,
+                        "IntervalInSeconds": 300
+                    },
+                    "CompressionFormat": "UNCOMPRESSED",
+                    "EncryptionConfiguration": {
+                        "NoEncryptionConfig": "NoEncryption"
+                    },
+                    "CloudWatchLoggingOptions": {
+                        "Enabled": true,
+                        "LogGroupName": "/aws/kinesisfirehose/datastream-prod-listengo-requests-cloudlogging",
+                        "LogStreamName": "DestinationDelivery"
+                    }
+                },
+                "ExtendedS3DestinationDescription": {
+                    "RoleARN": "arn:aws:iam::861228436192:role/firehose_integrate-log-format",
+                    "BucketARN": "arn:aws:s3:::test-datastream-transform",
+                    "Prefix": "",
+                    "ErrorOutputPrefix": "",
+                    "BufferingHints": {
+                        "SizeInMBs": 5,
+                        "IntervalInSeconds": 300
+                    },
+                    "CompressionFormat": "UNCOMPRESSED",
+                    "EncryptionConfiguration": {
+                        "NoEncryptionConfig": "NoEncryption"
+                    },
+                    "CloudWatchLoggingOptions": {
+                        "Enabled": true,
+                        "LogGroupName": "/aws/kinesisfirehose/datastream-prod-listengo-requests-cloudlogging",
+                        "LogStreamName": "DestinationDelivery"
+                    },
+                    "ProcessingConfiguration": {
+                        "Enabled": true,
+                        "Processors": [
+                            {
+                                "Type": "Lambda",
+                                "Parameters": [
+                                    {
+                                        "ParameterName": "LambdaArn",
+                                        "ParameterValue": "arn:aws:lambda:ap-northeast-1:861228436192:function:datastream-transform-prod-listengo-requests:$LATEST"
+                                    },
+                                    {
+                                        "ParameterName": "NumberOfRetries",
+                                        "ParameterValue": "3"
+                                    },
+                                    {
+                                        "ParameterName": "RoleArn",
+                                        "ParameterValue": "arn:aws:iam::861228436192:role/firehose_integrate-log-format"
+                                    },
+                                    {
+                                        "ParameterName": "BufferSizeInMBs",
+                                        "ParameterValue": "3"
+                                    },
+                                    {
+                                        "ParameterName": "BufferIntervalInSeconds",
+                                        "ParameterValue": "60"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "S3BackupMode": "Disabled",
+                    "DataFormatConversionConfiguration": {
+                        "Enabled": false
+                    }
+                }
+            }
+        ],
+        "HasMoreDestinations": false
+    }
+}

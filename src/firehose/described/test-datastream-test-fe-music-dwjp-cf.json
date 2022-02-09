@@ -1,0 +1,88 @@
+{
+    "DeliveryStreamDescription": {
+        "DeliveryStreamName": "test-datastream-test-fe-music-dwjp-cf",
+        "DeliveryStreamARN": "arn:aws:firehose:ap-northeast-1:861228436192:deliverystream/test-datastream-test-fe-music-dwjp-cf",
+        "DeliveryStreamStatus": "ACTIVE",
+        "DeliveryStreamEncryptionConfiguration": {
+            "Status": "DISABLED"
+        },
+        "DeliveryStreamType": "DirectPut",
+        "VersionId": "1",
+        "CreateTimestamp": "2020-07-20T23:50:17.176000+09:00",
+        "Destinations": [
+            {
+                "DestinationId": "destinationId-000000000001",
+                "S3DestinationDescription": {
+                    "RoleARN": "arn:aws:iam::861228436192:role/firehose_integrate-log-format",
+                    "BucketARN": "arn:aws:s3:::test-datastream-transform",
+                    "Prefix": "",
+                    "ErrorOutputPrefix": "",
+                    "BufferingHints": {
+                        "SizeInMBs": 5,
+                        "IntervalInSeconds": 300
+                    },
+                    "CompressionFormat": "UNCOMPRESSED",
+                    "EncryptionConfiguration": {
+                        "NoEncryptionConfig": "NoEncryption"
+                    },
+                    "CloudWatchLoggingOptions": {
+                        "Enabled": true,
+                        "LogGroupName": "/aws/kinesisfirehose/test-datastream-test-fe-music-dwjp-cf",
+                        "LogStreamName": "S3Delivery"
+                    }
+                },
+                "ExtendedS3DestinationDescription": {
+                    "RoleARN": "arn:aws:iam::861228436192:role/firehose_integrate-log-format",
+                    "BucketARN": "arn:aws:s3:::test-datastream-transform",
+                    "Prefix": "",
+                    "ErrorOutputPrefix": "",
+                    "BufferingHints": {
+                        "SizeInMBs": 5,
+                        "IntervalInSeconds": 300
+                    },
+                    "CompressionFormat": "UNCOMPRESSED",
+                    "EncryptionConfiguration": {
+                        "NoEncryptionConfig": "NoEncryption"
+                    },
+                    "CloudWatchLoggingOptions": {
+                        "Enabled": true,
+                        "LogGroupName": "/aws/kinesisfirehose/test-datastream-test-fe-music-dwjp-cf",
+                        "LogStreamName": "S3Delivery"
+                    },
+                    "ProcessingConfiguration": {
+                        "Enabled": true,
+                        "Processors": [
+                            {
+                                "Type": "Lambda",
+                                "Parameters": [
+                                    {
+                                        "ParameterName": "LambdaArn",
+                                        "ParameterValue": "arn:aws:lambda:ap-northeast-1:861228436192:function:test-datastream-transform-test-fe-music-dwjp-cf:$LATEST"
+                                    },
+                                    {
+                                        "ParameterName": "NumberOfRetries",
+                                        "ParameterValue": "3"
+                                    },
+                                    {
+                                        "ParameterName": "RoleArn",
+                                        "ParameterValue": "arn:aws:iam::861228436192:role/firehose_integrate-log-format"
+                                    },
+                                    {
+                                        "ParameterName": "BufferSizeInMBs",
+                                        "ParameterValue": "3"
+                                    },
+                                    {
+                                        "ParameterName": "BufferIntervalInSeconds",
+                                        "ParameterValue": "60"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "S3BackupMode": "Disabled"
+                }
+            }
+        ],
+        "HasMoreDestinations": false
+    }
+}

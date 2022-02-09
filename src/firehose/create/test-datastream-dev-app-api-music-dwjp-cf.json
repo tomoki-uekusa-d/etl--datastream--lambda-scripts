@@ -1,0 +1,57 @@
+{
+  "DeliveryStreamName": "test-datastream-dev-app-api-music-dwjp-cf",
+  "DeliveryStreamType": "DirectPut",
+  "ExtendedS3DestinationConfiguration": {
+      "RoleARN": "arn:aws:iam::861228436192:role/firehose_integrate-log-format",
+      "BucketARN": "arn:aws:s3:::test-datastream-transform",
+      "Prefix": "",
+      "ErrorOutputPrefix": "",
+      "BufferingHints": {
+          "SizeInMBs": 5,
+          "IntervalInSeconds": 300
+      },
+      "CompressionFormat": "UNCOMPRESSED",
+      "EncryptionConfiguration": {
+          "NoEncryptionConfig": "NoEncryption"
+      },
+      "CloudWatchLoggingOptions": {
+          "Enabled": true,
+          "LogGroupName": "/aws/kinesisfirehose/test-datastream-dev-app-api-music-dwjp-cf",
+          "LogStreamName": "DestinationDelivery"
+      },
+      "ProcessingConfiguration": {
+          "Enabled": true,
+          "Processors": [
+              {
+                "Type": "Lambda",
+                "Parameters": [
+                    {
+                        "ParameterName": "LambdaArn",
+                        "ParameterValue": "arn:aws:lambda:ap-northeast-1:861228436192:function:test-datastream-transform-dev-app-api-music-dwjp-cf:$LATEST"
+                    },
+                    {
+                        "ParameterName": "NumberOfRetries",
+                        "ParameterValue": "3"
+                    },
+                    {
+                        "ParameterName": "RoleArn",
+                        "ParameterValue": "arn:aws:iam::861228436192:role/firehose_integrate-log-format"
+                    },
+                    {
+                        "ParameterName": "BufferSizeInMBs",
+                        "ParameterValue": "3"
+                    },
+                    {
+                        "ParameterName": "BufferIntervalInSeconds",
+                        "ParameterValue": "60"
+                    }
+                ]
+              }
+          ]
+      },
+      "S3BackupMode": "Disabled",
+      "DataFormatConversionConfiguration": {
+          "Enabled": false
+      }
+  }
+}

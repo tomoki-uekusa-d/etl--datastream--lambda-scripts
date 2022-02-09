@@ -1,0 +1,57 @@
+{
+  "DeliveryStreamName": "<YOUR DELIVERY STREAMING NAME>",
+  "DeliveryStreamType": "DirectPut",
+  "ExtendedS3DestinationConfiguration": {
+      "RoleARN": "<YOUR ROLE ARN>",
+      "BucketARN": "<YOUR BUCKET ARN>",
+      "Prefix": "",
+      "ErrorOutputPrefix": "",
+      "BufferingHints": {
+          "SizeInMBs": 5,
+          "IntervalInSeconds": 300
+      },
+      "CompressionFormat": "UNCOMPRESSED",
+      "EncryptionConfiguration": {
+          "NoEncryptionConfig": "NoEncryption"
+      },
+      "CloudWatchLoggingOptions": {
+          "Enabled": true,
+          "LogGroupName": "/aws/kinesisfirehose/<YOUR DELIVERY STREAMING NAME>",
+          "LogStreamName": "DestinationDelivery"
+      },
+      "ProcessingConfiguration": {
+          "Enabled": true,
+          "Processors": [
+              {
+                "Type": "Lambda",
+                "Parameters": [
+                    {
+                        "ParameterName": "LambdaArn",
+                        "ParameterValue": "<YOUR LAMBDA ARN FOR TRANSFORM>"
+                    },
+                    {
+                        "ParameterName": "NumberOfRetries",
+                        "ParameterValue": "3"
+                    },
+                    {
+                        "ParameterName": "RoleArn",
+                        "ParameterValue": "<YOUR ROLE ARN>"
+                    },
+                    {
+                        "ParameterName": "BufferSizeInMBs",
+                        "ParameterValue": "3"
+                    },
+                    {
+                        "ParameterName": "BufferIntervalInSeconds",
+                        "ParameterValue": "60"
+                    }
+                ]
+              }
+          ]
+      },
+      "S3BackupMode": "Disabled",
+      "DataFormatConversionConfiguration": {
+          "Enabled": false
+      }
+  }
+}
