@@ -80,8 +80,8 @@ def _transform(data):
     _out['service_name'] = SERVICE_NAME
     _out['log_platform'] = LOG_PLATFORM
     _out['time'] = '{} {}'.format(data['date'], data['time'])
-    _out['log_type'] = data['x-edge-response-result-type']
-    _out['facility'] = _check_facility(data['sc-status'])
+    _out['log_type'] = data['x-edge-responseresult-type']
+    _out['facility'] = _check_facility(data'sc-status'])
     _out['client'] = data['c-ip']
     _out['server'] = data['x-host-header']
     _out['method'] = data['cs-method']
